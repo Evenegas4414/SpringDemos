@@ -9,13 +9,15 @@ import java.util.Date;
 
 public class User {
 
-    @Size(min = 2, max = 25, message = "Name should be lie between 2 and 25.")
+    @Size(min = 2, max = 25)
+    //@Size(min = 2, max = 25, message = "Name should be lie between 2 and 25.")
     private String name;
     @NotBlank(message = "Email must have a value.")
     @Email(message = "Email must follow the format: example@mail.com")
     private String email;
-    @Min(value = 18, message = "Must be greater than 18.")
-    @NotNull(message = "Age is a required field.")
+    @Min(value = 18, message = "{custom.warning}")
+    @NotNull
+    //@NotNull(message = "Age is a required field.")
     private Integer age;
     @NotNull(message = "Birthday is a requiered field.")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

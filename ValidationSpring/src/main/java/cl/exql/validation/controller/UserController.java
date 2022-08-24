@@ -30,13 +30,12 @@ public class UserController {
     @PostMapping("/add")
     public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,
                            RedirectAttributes redirectAttributes, Model model) {
-        System.out.println(bindingResult.hasErrors());
+        System.out.println("Errors: " + bindingResult.hasErrors());
         if (bindingResult.hasErrors()) {
             Map<String, String> roles = new HashMap<String, String>();
             roles.put("admin", "ADMIN");
             roles.put("dba", "DBA");
             model.addAttribute("roles", roles);
-            System.out.println("Has errors");
             return "userForm";
         }
 

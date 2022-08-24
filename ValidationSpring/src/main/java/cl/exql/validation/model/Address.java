@@ -7,7 +7,8 @@ import javax.validation.constraints.Size;
 
 public class Address {
 
-    @NotBlank(message = "Street must have a value.")
+    @NotBlank
+    //@NotBlank(message = "Street must have a value.")
     private String street;
     @Size(min=2, max = 15, message = "Size of state must be lie between 2 and 15.")
     private String state;
