@@ -11,9 +11,14 @@ public class SimpleExpressionController {
 
     @GetMapping("/simpleExpression")
     public String simpleExpression(Model model) {
-        Address address = new Address("123 Street", "4567");
-        Person person = new Person(1L, "Emil", address);
-        model.addAttribute("person1", person);
+
+        Address address1 = new Address("123 Street", "4567");
+        Person person1 = new Person(1L, "Mercedes", address1);
+        model.addAttribute("person1", person1);
+
+        Address address2 = new Address("321 True Street", "7654");
+        Person person2 = new Person(2L, "Ingrid", address2);
+        model.addAttribute("person2", person2);
         return "simpleExpression";
     }
 }

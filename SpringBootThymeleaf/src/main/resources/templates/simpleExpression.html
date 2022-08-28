@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.otg">
 <head>
     <meta charset="UTF-8">
     <title>Simple Expression</title>
 </head>
 <body>
     <h1>Simple Expression</h1>
+    <p th:text="${person1.id}">ID: 0</p>
+    <p th:text="${person1.name}">Name: Namie</p>
+    <p th:text="${person1.address.street}">Street: St</p>
+    <p th:text="${person1.address.zipCode}">Zipcode: 219</p>
 
-    <
+
+    <h1>Selection Variable Expression</h1>
+    <div th:object="${person2}">
+        <p th:text="*{id}">ID: 0</p>
+        <p th:text="*{name}">Name: Namie</p>
+        <p th:text="*{address.street}">Street: St</p>
+        <p th:text="*{address.zipCode}">Zipcode: 219</p>
+    </div>
+
+    <h1>Message Expression</h1>
+    <p th:text="#{messages.name}">Name</p>
+    <p th:text="#{messages.age}">Age</p>
+
+    <h1>Link URL Expression</h1>
+    <a href="#" th:href="@{/user/1}">Link 1</a>
+    <a href="#" th:href="@{/user(id=${person1.id})/1}">Link 1</a>
+
 </body>
 </html>
