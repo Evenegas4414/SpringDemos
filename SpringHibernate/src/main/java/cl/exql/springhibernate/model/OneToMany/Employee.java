@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Setter
@@ -23,4 +21,10 @@ public class Employee {
     private Long id;
     private String firstName;
     private String lastName;
+
+    @OneToMany
+    @JoinTable(name="employee_job", joinColumns = {@JoinColumn(name = "job_id")},
+            inverseJoinColumns = {@JoinColumn(name = "employee_id")})
+    //@JoinColumn(name = "job_id")
+    private List<Job> jobs;
 }
